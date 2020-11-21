@@ -1,0 +1,206 @@
+{% extends "lookcare/base.html" %}
+
+{% block content %}
+<!-- start main content -->
+<main class="main-container">
+<!--Checkout Area Start-->
+<section class="checkout-area area-padding ptb-40">
+   <!-- Begin checkout -->
+   <div class="ld-subpage-content">
+
+      <div class="checkout-content">
+
+         <!-- Begin checkout section -->
+         <section class="checkout">
+
+
+
+            <section class="checkout-section">
+
+               <div class="ld-checkout-inner">
+
+                  <div class="xs-margin"></div>
+
+                  <div class="accordion" id="collapse">
+
+
+                    <div class="accordion-group panel">
+                        <div class="container">
+                           <h2 class="accordion-title mb-0"><span>Confirm Order</span> <a class="accordion-btn open" data-toggle="collapse" href="#collapse-five"></a></h2>
+
+                           <div class="accordion-body collapse in" id="collapse-five">
+
+                              <div class="row accordion-body-wrapper">
+
+                                 <div class="col-md-12">
+                                    <table class="table checkout-table">
+                                       <thead>
+                                       <tr>
+                                          <th class="table-title">Product Name</th>
+                                          <th class="table-title">Unit Price</th>
+                                          <th class="table-title">Quantity</th>
+                                          <th class="table-title">SubTotal</th>
+
+                                       </tr>
+                                       </thead>
+                                       <tbody>
+                                       {% for i in alshp.sca %}
+                                       <tr>
+                                          <td class="product-name-col">
+                                             <figure>
+                                                <a href="#"><img src="{{i.image}}" alt="{{i.product_name}}"></a>
+                                             </figure>
+                                             <h3 class="product-name"><a href="#">{{i.product_name}}</a></h3>
+                                             <ul>
+                                                <li>Color: Light blue</li>
+                                                <li>Size: SM</li>
+                                             </ul>
+                                          </td>
+
+                                          <td class="product-price-col">
+                                              <span class="product-price-special">RS {{i.price}}</span>
+                                          </td>
+                                          <td>
+                                             <div class="custom-quantity-input">
+
+                                                 <span class="product-price-special">{{i.qnt}}</span>
+                                             </div>
+                                          </td>
+                                          <td class="product-total-col">
+                                              <span class="product-price-special">RS {{i.tot}}</span>
+                                          </td>
+
+                                       </tr>
+                                       {% endfor %}
+                                       <tr class="merged">
+                                          <td class="checkout-table-title" colspan="4">
+
+                                                                    <span>Subtotal:
+                </span>
+                                          </td>
+                                          <td class="checkout-table-price" colspan="2">RS {{alshp.sum}}
+                                          </td>
+                                       </tr>
+                                       <tr class="merged">
+                                          <td class="checkout-table-title" colspan="4">
+
+                                                                    <span>Shipping:
+                </span>
+                                          </td>
+                                          <td class="checkout-table-price" colspan="2">RS {{alshp.ship}}
+                                          </td>
+                                       </tr>
+                                       <tr class="merged">
+                                          <td class="checkout-table-title" colspan="4">
+
+                                                                    <span>Tax (5%):
+                </span>
+                                          </td>
+                                          <td class="checkout-table-price" colspan="2">RS {{alshp.tax}}
+                                          </td>
+                                       </tr>
+                                       </tbody>
+                                       <tfoot>
+                                       <tr>
+                                          <td class="checkout-total-title" colspan="4">
+
+                                                                    <span>TOTAL:</span>
+                                          </td>
+                                          <td class="checkout-total-price cart-total" colspan="2">RS {{alshp.gros}}
+                                          </td>
+                                       </tr>
+                                       </tfoot>
+                                    </table>
+
+
+
+<!--                                    <div class="text-right"><a href="{{BASE_DIR}}/order" class="btn btn-custom-6 btn-lger min-width-slg">CONFIRM ORDER</a></div>-->
+
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="accordion-group panel darkerbg">
+                        <div class="container">
+                           <h2 class="accordion-title"><span>Billing Informations</span> <a class="accordion-btn open" data-toggle="collapse" href="#collapse-two"></a></h2>
+
+                           <div class="accordion-body collapse in" id="collapse-two">
+
+                              <div class="row accordion-body-wrapper">
+
+                                 <form method="post" action="">
+                                     {% csrf_token %}
+                                    {% if messages %}
+                                        <ul class="messages">
+                                            {% for message in messages %}
+                                            <li {% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                    <div class="col-sm-6 padding-right-md">
+                                       <h3 class="subtitle">Your Personal Details</h3>
+
+                                       <div class="xs-margin half"></div>
+
+                                       <div class="form-group">
+                                          <label for="telephone" class="form-label">Enter your mobile number:<span class="required">*</span></label>
+                                          <input type="text" name="mobile" id="telephone" class="form-control input-lg" required>
+                                       </div>
+
+                                       <div class="form-group">
+                                           <label for="add" class="form-label">Enter your address:<span class="required">*</span></label>
+
+
+                                           <textarea name="address" id="add" class="form-control input-lg" required></textarea>
+                                       </div>
+
+                                       <div class="top-10px">
+                                       </div>
+
+                                       <div class="form-group custom-checkbox-wrapper">
+
+                                           <div class="text-right"><input type="submit" class="btn btn-alert-6 btn-lger min-width-slg" value="Confirm Order"></div>
+                                       </div>
+                                    </div>
+
+                                    <div class="md-margin visible-xs clearfix">
+                                    </div>
+
+
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+
+
+
+                  </div>
+
+                  <div class="xlg-margin">
+                  </div>
+
+               </div>
+
+            </section>
+
+
+         </section>
+         <!-- End checkout section -->
+
+
+      </div>
+      <!-- /.checkout-content -->
+   </div>
+   <!-- /.ld-subpage-content -->
+   <!-- End checkout -->
+</section>
+<!--End of Checkout Area-->
+
+
+</main>
+<!-- end main content -->
+{% endblock %}

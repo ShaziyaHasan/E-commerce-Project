@@ -1,0 +1,13 @@
+{% extends "lookcare/base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">{{request.session.username}}</h1>
+  <h1 class="display-4">Order ID : {{orderid}}</h1>
+  <h1 class="display-4">Total : {{gros}} </h1>
+  <p class="lead">Mode of payment is Cash on Delivery</p>
+  <hr class="my-4">
+  <p>Its going to reach mentioned destination within 4 days.</p>
+
+</div>
+{% endblock %}

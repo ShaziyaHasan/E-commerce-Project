@@ -1,0 +1,59 @@
+{% extends "lookcare/base.html" %}
+
+{% block content %}
+<!-- start main content -->
+<main class="container">
+
+	<section>
+
+		<div class="signuppanel">
+
+			<div class="row">
+
+				<div class="col-md-6">
+
+					<form method="post" action="">
+						{% csrf_token %}
+						<h3 class="nomargin">Sign Up</h3>
+						<p class="mt5 mb20">Already a member? <a href="{{BASE_DIR}}/signin"><strong>Sign In</strong></a></p>
+						{% if messages %}
+							<ul class="messages">
+								{% for message in messages %}
+								<li {% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+
+						<label class="control-label">Name</label>
+						<div class="row mb10">
+							<div class="col-sm-6">
+								<input type="text" name="first_name" class="form-control" placeholder="Firstname" required />
+							</div>
+							<div class="col-sm-6">
+								<input type="text" name="last_name" class="form-control" placeholder="Lastname" required />
+							</div>
+						</div>
+
+						<div class="mb10">
+							<label class="control-label">Email Address</label>
+							<input type="email" name="email" class="form-control" required />
+						</div>
+
+						<div class="mb10">
+							<label class="control-label">Password</label>
+							<input type="password" name="password" class="form-control" required minlength="4"/>
+						</div>
+						<br />
+						<button class="btn btn-success btn-block">Sign Up</button>
+					</form>
+
+				</div><!-- col-sm-6 -->
+
+			</div><!-- row -->
+
+		</div><!-- signuppanel -->
+
+	</section>
+</main>
+<!-- end  main content -->
+{% endblock %}
