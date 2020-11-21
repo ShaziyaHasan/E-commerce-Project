@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/ASUS/PycharmProjects/proj_ecommerce/db.sqlite3" readonly="0" foreign_keys="" case_sensitive_like="" temp_store="" wal_autocheckpoint="" synchronous=""/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="3304"/><column_width id="4" width="0"/></tab_structure><tab_browse><current_table name="0,0:"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">select psc.id,psc.quantity as qnt, pp.quantity as stock, pp.product_name,pp.price,(pp.price*psc.quantity) as tot,pp.image,
-                                        mu.first_name, mu.last_name from product_shopping_cart as psc 
-                                        join product_product as pp on psc.product_id_id = pp.id 
-                                        join myapp_userdetails as mu on psc.user_id_id = mu.id where mu.id= 1;
-								
-</sql><current_tab id="0"/></tab_sql></sqlb_project>
