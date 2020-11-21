@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css/' %}">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="login-box">
+  <div class="left">
+    <h1>Update Page</h1>
+    <h2>{{row.first_name}}</h2>
+   <!-- <form role="form" action=" " method="post" enctype="multipart/form-data"> -->
+    <form method="post" action="">
+      {% csrf_token %}
+        <!--    <input type="hidden" name="id" value="{{ row.id }}" />-->
+    <input type="text" name="first_name" placeholder="First Name" />
+    <input type="text" name="last_name" placeholder="Last Name" />
+    <input type="text" name="gender" placeholder="Gender"/>
+    <input type="email" name="email" placeholder="E-mail"/>
+    <input type="password" name="password" placeholder="Password"/>
+
+   <!-- <label> upload image1
+      <input type="file" name="image1">
+    </label>
+
+    <label> upload image2
+      <input type="file" name="image2">
+    </label> -->
+    <input type="submit" name="update" value="Update" />
+    </form>
+  </div>
+</div>
+</body>
+<!--<footer>-->
+    <!--<script type="text/javascript" src="{% static 'js/custom.js/' %}"></script>-->
+<!--</footer>-->
+</html>
